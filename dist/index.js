@@ -1719,16 +1719,16 @@ async function run() {
 
         core.info(`Dir print 1.5`);
         exec(`ls`, function(err, data) {
-            console.log(err);
-            console.log(data.toString());
+            core.info(err);
+            core.info(data.toString());
         });
 
         exec(`cd jgantts.com`)
 
-        core.info(`Dir print 2`);
-        const srcFiles = fs.readdirSync('/');
-        srcFiles.forEach(file => {
-            core.info(`${file}`);
+        core.info(`Dir print 2.5`);
+        exec(`ls`, function(err, data) {
+            core.info(err);
+            core.info(data.toString());
         });
 
         exec(`npm install`);
