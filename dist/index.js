@@ -24160,7 +24160,7 @@ const core = __nccwpck_require__(2186);
 const wait = __nccwpck_require__(4258);
 const fs = __nccwpck_require__(5747);
 const exec = __nccwpck_require__(3129).execSync;
-const ssh = new node_ssh();
+const Connection = __nccwpck_require__(5869);
 
 // most @actions toolkit packages have async methods
 async function run() {
@@ -24183,7 +24183,6 @@ async function run() {
         core.info(exec(`ls dist`));
 
 
-        let Connection = __nccwpck_require__(5869);
         let c = new Connection();
 
         c.on('connect', function() {
