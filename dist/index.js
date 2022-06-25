@@ -1555,23 +1555,6 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 258:
-/***/ ((module) => {
-
-let wait = function (milliseconds) {
-  return new Promise((resolve) => {
-    if (typeof milliseconds !== 'number') {
-      throw new Error('milliseconds not a number');
-    }
-    setTimeout(() => resolve("done!"), milliseconds)
-  });
-};
-
-module.exports = wait;
-
-
-/***/ }),
-
 /***/ 357:
 /***/ ((module) => {
 
@@ -1702,7 +1685,6 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(186);
-const wait = __nccwpck_require__(258);
 const fs = __nccwpck_require__(747);
 const exec = __nccwpck_require__(129).execFile;
 
@@ -1718,15 +1700,15 @@ async function run() {
         });
 
         core.info(`Dir print 1.5`);
-        exec(`ls`, function(err, data) {
+        await exec(`ls`, function(err, data) {
             core.info(err);
             core.info(data.toString());
         });
 
-        exec(`cd jgantts.com`)
+        await exec(`cd jgantts.com`)
 
         core.info(`Dir print 2.5`);
-        exec(`ls`, function(err, data) {
+        await exec(`ls`, function(err, data) {
             core.info(err);
             core.info(data.toString());
         });

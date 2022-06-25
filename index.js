@@ -1,5 +1,4 @@
 const core = require('@actions/core');
-const wait = require('./wait');
 const fs = require('fs');
 const exec = require('child_process').execFile;
 
@@ -15,15 +14,15 @@ async function run() {
         });
 
         core.info(`Dir print 1.5`);
-        exec(`ls`, function(err, data) {
+        await exec(`ls`, function(err, data) {
             core.info(err);
             core.info(data.toString());
         });
 
-        exec(`cd jgantts.com`)
+        await exec(`cd jgantts.com`)
 
         core.info(`Dir print 2.5`);
-        exec(`ls`, function(err, data) {
+        await exec(`ls`, function(err, data) {
             core.info(err);
             core.info(data.toString());
         });
