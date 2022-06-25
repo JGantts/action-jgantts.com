@@ -2,11 +2,17 @@ const core = require('@actions/core');
 const wait = require('./wait');
 const fs = require('fs');
 const exec = require('child_process').execSync;
+const node_ssh = require('node-ssh');
+const ssh = new node_ssh();
 
 // most @actions toolkit packages have async methods
 async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
+
+        const ms = core.getInput('milliseconds');
+        const namecheap_username = core.getInput('namecheap_username');
+        const namecheap_ssh_key = core.getInput('namecheap_ssh_key');
 
         core.info(exec(`cd jgantts.com`));
 
@@ -20,10 +26,52 @@ async function run() {
         core.info(exec(`ls dist`));
 
 
+        let Connection = require('ssh2');
+        let c = new Connection();
 
-        const files = fs.readdirSync('jgantts.com');
+        c.on('connect', function() {
+          console.log('Connection :: connect');
+        });
 
-        const ms = core.getInput('milliseconds');
+        c.on('ready', function() {
+          console.log('Connection :: ready');
+          c.exec('uptime', function(err, stream) {
+            if (err) throw err;
+            stream.on('data', function(data, extended) {
+              core.info((extended === 'stderr' ? 'STDERR: ' : 'STDOUT: ') + data);
+            });
+            stream.on('end', function() {
+              core.info('Stream :: EOF');
+            });
+            stream.on('close', function() {
+              core.info('Stream :: close');
+            });
+            stream.on('exit', function(code, signal) {
+              core.info('Stream :: exit :: code: ' + code + ', signal: ' + signal);
+              c.end();
+            });
+          });
+        });
+
+        c.on('error', function(err) {
+          core.info('Connection :: error :: ' + err);
+        });
+
+        c.on('end', function() {
+          core.info('Connection :: end');
+        });
+
+        c.on('close', function(had_error) {
+          core.info('Connection :: close');
+        });
+
+        c.connect({
+            host: `ssh://${namecheap_username}@jgantts.com:${namechaep_ssh_port}/home/${namecheap_username}/repositories/jgantts.com`,
+            username: namecheap_username,
+            port: namechaep_ssh_port,
+            privateKey: namecheap_ssh_key
+        });
+
         core.info(`Waiting ${ms} milliseconds ...`);
 
         core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
