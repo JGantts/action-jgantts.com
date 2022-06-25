@@ -8,6 +8,7 @@ async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
 
+        core.info(`Dir print 1`);
         const files1 = fs.readdirSync('');
         files1.forEach(file => {
             core.info(`${file}`);
@@ -15,6 +16,7 @@ async function run() {
 
         //exec(`cd jgantts.com`)
 
+        core.info(`Dir print 2`);
         const srcFiles = fs.readdirSync('');
         srcFiles.forEach(file => {
             core.info(`${file}`);
@@ -23,6 +25,7 @@ async function run() {
         //exec(`npm install`);
         //exec(`tsc`);
 
+        core.info(`Dir print 3`);
         const distFiles = fs.readdirSync('jgantts.com');
         distFiles.forEach(file => {
             core.info(`${file}`);
