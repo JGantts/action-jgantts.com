@@ -1718,10 +1718,7 @@ async function run() {
         });
 
         core.info(`Dir print 1.5`);
-        await exec(`ls`, function(err, data) {
-            core.info(err);
-            core.info(data.toString());
-        });
+        core.info(exec(`ls`));
 
         await exec(`cd jgantts.com`)
 
