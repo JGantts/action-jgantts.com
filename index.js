@@ -29,11 +29,11 @@ async function run() {
         let c = new Client();
 
         c.on('connect', function() {
-          console.log('Connection :: connect');
+          core.info('Connection :: connect');
         });
 
         c.on('ready', function() {
-          console.log('Connection :: ready');
+          core.info('Connection :: ready');
           c.exec('uptime', function(err, stream) {
             if (err) throw err;
             stream.on('data', function(data, extended) {
