@@ -45,7 +45,7 @@ async function run() {
         } catch (error2) {
             core.info(`Error encountered while displaying error: ${error2.message}`);
         }
-        core.info(error.message));
+        core.info(error.message);
         core.setFailed(error.message);
     }
 }
