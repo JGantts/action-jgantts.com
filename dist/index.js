@@ -1720,16 +1720,14 @@ async function run() {
         core.info(`Dir print 1.5`);
         core.info(exec(`ls`));
 
-        await exec(`cd jgantts.com`)
+        core.info(exec(`cd jgantts.com`));
 
         core.info(`Dir print 2.5`);
-        await exec(`ls`, function(err, data) {
-            core.info(err);
-            core.info(data.toString());
-        });
 
-        await exec(`npm install`);
-        await exec(`tsc`);
+        core.info(exec(`ls`));
+
+        core.info(exec(`npm install`));
+        core.info(exec(`tsc`));
 
         core.info(`Dir print 3`);
         const distFiles = fs.readdirSync('/');
