@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const wait = require('./wait');
 const fs = require('fs');
 const exec = require('child_process').execSync;
-const Connection = require('ssh2');
+const { Client } = require('ssh2');
 
 // most @actions toolkit packages have async methods
 async function run() {
@@ -25,7 +25,7 @@ async function run() {
         core.info(exec(`ls dist`));
 
 
-        let c = new Connection();
+        let c = new Client();
 
         c.on('connect', function() {
           console.log('Connection :: connect');

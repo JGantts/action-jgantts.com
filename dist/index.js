@@ -24160,7 +24160,7 @@ const core = __nccwpck_require__(2186);
 const wait = __nccwpck_require__(4258);
 const fs = __nccwpck_require__(5747);
 const exec = __nccwpck_require__(3129).execSync;
-const Connection = __nccwpck_require__(5869);
+const { Client } = __nccwpck_require__(5869);
 
 // most @actions toolkit packages have async methods
 async function run() {
@@ -24183,7 +24183,7 @@ async function run() {
         core.info(exec(`ls dist`));
 
 
-        let c = new Connection();
+        let c = new Client();
 
         c.on('connect', function() {
           console.log('Connection :: connect');
