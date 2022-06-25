@@ -1720,7 +1720,7 @@ async function run() {
         core.info(exec(`tsc`));
 
         core.info(`Dir print 2`);
-        core.info(exec(`ls`));
+        core.info(exec(`ls dist`));
 
 
 
