@@ -1,4 +1,5 @@
 const core = require('@actions/core');
+const wait = require('./wait');
 const fs = require('fs');
 const exec = require('child_process').execFile;
 
@@ -27,8 +28,8 @@ async function run() {
             core.info(data.toString());
         });
 
-        exec(`npm install`);
-        exec(`tsc`);
+        await exec(`npm install`);
+        await exec(`tsc`);
 
         core.info(`Dir print 3`);
         const distFiles = fs.readdirSync('/');
