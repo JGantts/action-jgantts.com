@@ -1716,15 +1716,15 @@ async function run() {
             core.info(`${file}`);
         });
 
-        exec(`cd jgantts.com`)
+        //exec(`cd jgantts.com`)
 
         const srcFiles = fs.readdirSync('');
         srcFiles.forEach(file => {
             core.info(`${file}`);
         });
 
-        exec(`npm install`);
-        exec(`tsc`);
+        //exec(`npm install`);
+        //exec(`tsc`);
 
         const distFiles = fs.readdirSync('jgantts.com');
         distFiles.forEach(file => {
