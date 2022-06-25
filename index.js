@@ -35,7 +35,10 @@ async function run() {
         c.on('ready', function() {
           core.info('Connection :: ready');
           c.exec('uptime', function(err, stream) {
-            if (err) throw err;
+            if (err) {
+                core.info(err.message);
+                throw err;
+            }
             stream.on('data', function(data, extended) {
               core.info((extended === 'stderr' ? 'STDERR: ' : 'STDOUT: ') + data);
             });
