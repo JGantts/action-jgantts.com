@@ -24168,6 +24168,7 @@ async function run() {
         core.info(`JGantts.com Custom Deployment`);
 
         const ms = core.getInput('milliseconds');
+        const namecheap_domain = core.getInput('namecheap_domain');
         const namecheap_username = core.getInput('namecheap_username');
         const namecheap_ssh_port = core.getInput('namecheap_ssh_port');
         const namecheap_ssh_key = core.getInput('namecheap_ssh_key');
@@ -24226,7 +24227,7 @@ async function run() {
         });
 
         c.connect({
-            host: `jgantts.com`,
+            host: namecheap_domain,
             username: namecheap_username,
             port: namecheap_ssh_port,
             privateKey: namecheap_ssh_key
