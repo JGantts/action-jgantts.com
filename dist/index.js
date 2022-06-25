@@ -24167,9 +24167,9 @@ async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
 
-        const ms = core.getInput('milliseconds');v
+        const ms = core.getInput('milliseconds');
         const namecheap_username = core.getInput('namecheap_username');
-        const namecheap_ssh_port = core.getInput('namecheap_ssh_port');
+        const namecheap_ssh_ports = core.getInput('namecheap_ssh_port');
         const namecheap_ssh_key = core.getInput('namecheap_ssh_key');
 
         core.info(exec(`cd jgantts.com`));
