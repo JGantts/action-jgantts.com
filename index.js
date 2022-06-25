@@ -42,8 +42,8 @@ async function run() {
             files.forEach(file => {
                 core.info(`${file}`);
             });
-        } catch {
-            core.info(`Error encountered while displaying error.`);
+        } catch (error2) {
+            core.info(`Error encountered while displaying error: ${error2.message}`);
         }
         core.setFailed(error.message);
     }
