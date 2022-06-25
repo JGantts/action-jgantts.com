@@ -14,8 +14,6 @@ async function run() {
         const namecheap_ssh_port = core.getInput('namecheap_ssh_port');
         const namecheap_ssh_key = core.getInput('namecheap_ssh_key');
 
-        core.info(`namecheap_username: ${namecheap_username}`);
-
         core.info(exec(`cd jgantts.com`));
 
         core.info(`Dir print 1`);
@@ -67,7 +65,7 @@ async function run() {
         });
 
         c.connect({
-            host: `ssh://${namecheap_username}@jgantts.com:${namecheap_ssh_port}/home/${namecheap_username}/repositories/jgantts.com`,
+            host: `jgantts.com`,
             username: namecheap_username,
             port: namecheap_ssh_port,
             privateKey: namecheap_ssh_key
