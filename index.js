@@ -70,7 +70,7 @@ async function run() {
 
         c.connect({
             host: namecheap_domain,
-            username: namecheap_username,
+            username: 'id_rsa',
             port: namecheap_ssh_port,
             privateKey: namecheap_ssh_key
         });
