@@ -1711,6 +1711,11 @@ async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
 
+        const files1 = fs.readdirSync('');
+        files1.forEach(file => {
+            core.info(`${file}`);
+        });
+
         exec(`cd jgantts.com`)
 
         const srcFiles = fs.readdirSync('');
