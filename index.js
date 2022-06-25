@@ -2,7 +2,6 @@ const core = require('@actions/core');
 const wait = require('./wait');
 const fs = require('fs');
 const exec = require('child_process').execSync;
-const node_ssh = require('node-ssh');
 const ssh = new node_ssh();
 
 // most @actions toolkit packages have async methods
