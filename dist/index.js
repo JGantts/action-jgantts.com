@@ -1712,24 +1712,24 @@ async function run() {
         core.info(`JGantts.com Custom Deployment`);
 
         core.info(`Dir print 1`);
-        const files1 = fs.readdirSync('');
+        const files1 = fs.readdirSync('/');
         files1.forEach(file => {
             core.info(`${file}`);
         });
 
-        //exec(`cd jgantts.com`)
+        exec(`cd jgantts.com`)
 
         core.info(`Dir print 2`);
-        const srcFiles = fs.readdirSync('');
+        const srcFiles = fs.readdirSync('/');
         srcFiles.forEach(file => {
             core.info(`${file}`);
         });
 
-        //exec(`npm install`);
-        //exec(`tsc`);
+        exec(`npm install`);
+        exec(`tsc`);
 
         core.info(`Dir print 3`);
-        const distFiles = fs.readdirSync('jgantts.com');
+        const distFiles = fs.readdirSync('/');
         distFiles.forEach(file => {
             core.info(`${file}`);
         });
