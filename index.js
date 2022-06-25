@@ -35,7 +35,16 @@ async function run() {
 
         core.setOutput('time', new Date().toTimeString());
     } catch (error) {
-        core.info(`Wut?`);
+        core.info(`Unknown error.`);
+        try {
+            core.info(`Files:`);
+            const files = fs.readdirSync('');
+            files.forEach(file => {
+                core.info(`${file}`);
+            });
+        } catch {
+            core.info(`Error encountered while displaying error.`);
+        }
         core.setFailed(error.message);
     }
 }
