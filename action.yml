@@ -5,6 +5,18 @@ inputs:
     description: 'number of milliseconds to wait'
     required: true
     default: '1000'
+  namecheap_username:
+    description: 'blank'
+    required: true
+    default: 'admin'
+  namecheap_ssh_key:
+    description: 'blank'
+    required: true
+    default: 'password'
+  namechaep_ssh_port:
+    description: 'blank'
+    required: true
+    default: '22'
 outputs:
   time: # output will be available to future steps
     description: 'The current time after waiting'
