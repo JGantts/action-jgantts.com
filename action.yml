@@ -9,6 +9,10 @@ inputs:
     description: 'blank'
     required: true
     default: 'admin'
+  namecheap_domain:
+    description: 'blank'
+    required: true
+    default: 'example.com'
   namecheap_ssh_key:
     description: 'blank'
     required: true
