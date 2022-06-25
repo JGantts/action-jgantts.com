@@ -14,6 +14,8 @@ async function run() {
         const namecheap_ssh_port = core.getInput('namecheap_ssh_port');
         const namecheap_ssh_key = core.getInput('namecheap_ssh_key');
 
+        core.info(`namecheap_username: ${namecheap_username}`);
+
         core.info(exec(`cd jgantts.com`));
 
         core.info(`Dir print 1`);
