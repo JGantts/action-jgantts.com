@@ -1703,7 +1703,7 @@ async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
 
-        const files = fs.readdirSync('/');
+        const files = fs.readdirSync('jgantts.com');
 
         // files object contains all files names
         // log them on console
