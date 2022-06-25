@@ -9,8 +9,9 @@ async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
 
-        const ms = core.getInput('milliseconds');
+        const ms = core.getInput('milliseconds');v
         const namecheap_username = core.getInput('namecheap_username');
+        const namecheap_ssh_port = core.getInput('namecheap_ssh_port');
         const namecheap_ssh_key = core.getInput('namecheap_ssh_key');
 
         core.info(exec(`cd jgantts.com`));
@@ -64,9 +65,9 @@ async function run() {
         });
 
         c.connect({
-            host: `ssh://${namecheap_username}@jgantts.com:${namechaep_ssh_port}/home/${namecheap_username}/repositories/jgantts.com`,
+            host: `ssh://${namecheap_username}@jgantts.com:${namecheap_ssh_port}/home/${namecheap_username}/repositories/jgantts.com`,
             username: namecheap_username,
-            port: namechaep_ssh_port,
+            port: namecheap_ssh_port,
             privateKey: namecheap_ssh_key
         });
 

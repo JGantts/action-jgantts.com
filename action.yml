@@ -13,7 +13,7 @@ inputs:
     description: 'blank'
     required: true
     default: 'password'
-  namechaep_ssh_port:
+  namecheap_ssh_port:
     description: 'blank'
     required: true
     default: '22'
