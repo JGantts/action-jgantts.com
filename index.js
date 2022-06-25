@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const wait = require('./wait');
 const fs = require('fs');
-
+const exec = require('child_process').execFile;
 
 // most @actions toolkit packages have async methods
 async function run() {
