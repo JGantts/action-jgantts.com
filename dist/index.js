@@ -1695,22 +1695,34 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(186);
 const wait = __nccwpck_require__(258);
+const fs = __nccwpck_require__(747);
 
 
 // most @actions toolkit packages have async methods
 async function run() {
-  try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
+    try {
+        core.info(`JGantts.com Custom Deployment`);
 
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
+        //const files = fs.readdirSync('');
 
-    core.setOutput('time', new Date().toTimeString());
-  } catch (error) {
-    core.setFailed(error.message);
-  }
+        // files object contains all files names
+        // log them on console
+        /*files.forEach(file => {
+            core.info(`${file}`);
+        });*/
+
+        const ms = core.getInput('milliseconds');
+        core.info(`Waiting ${ms} milliseconds ...`);
+
+        core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
+        await wait(parseInt(ms));
+        core.info((new Date()).toTimeString());
+
+        core.setOutput('time', new Date().toTimeString());
+    } catch (error) {
+        core.info(`Wut?`);
+        core.setFailed(error.message);
+    }
 }
 
 run();
