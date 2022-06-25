@@ -14,6 +14,9 @@ async function run() {
             core.info(`${file}`);
         });
 
+        core.info(`Dir print 1.5`);
+        core.info(exec(`ls`));
+
         exec(`cd jgantts.com`)
 
         core.info(`Dir print 2`);
