@@ -8,13 +8,13 @@ async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
 
-        //const files = fs.readdirSync('');
+        const files = fs.readdirSync('/');
 
         // files object contains all files names
         // log them on console
-        /*files.forEach(file => {
+        files.forEach(file => {
             core.info(`${file}`);
-        });*/
+        });
 
         const ms = core.getInput('milliseconds');
         core.info(`Waiting ${ms} milliseconds ...`);
