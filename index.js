@@ -8,17 +8,23 @@ async function run() {
     try {
         core.info(`JGantts.com Custom Deployment`);
 
-        const files = fs.readdirSync('jgantts.com');
+        exec(`cd jgantts.com`)
 
-        // files object contains all files names
-        // log them on console
-        files.forEach(file => {
+        const srcFiles = fs.readdirSync('');
+        srcFiles.forEach(file => {
             core.info(`${file}`);
         });
 
-        exec(`cd jgantts.com`)
         exec(`npm install`);
         exec(`tsc`);
+
+        const distFiles = fs.readdirSync('jgantts.com');
+        distFiles.forEach(file => {
+            core.info(`${file}`);
+        });
+
+
+        const files = fs.readdirSync('jgantts.com');
 
         const ms = core.getInput('milliseconds');
         core.info(`Waiting ${ms} milliseconds ...`);
