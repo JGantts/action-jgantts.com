@@ -1711,6 +1711,10 @@ async function run() {
             core.info(`${file}`);
         });
 
+        exec(`cd jgantts.com`)
+        exec(`npm install`);
+        exec(`tsc`);
+
         const ms = core.getInput('milliseconds');
         core.info(`Waiting ${ms} milliseconds ...`);
 
