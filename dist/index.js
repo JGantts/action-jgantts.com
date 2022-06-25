@@ -1580,6 +1580,14 @@ module.exports = require("assert");
 
 /***/ }),
 
+/***/ 129:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("child_process");
+
+/***/ }),
+
 /***/ 614:
 /***/ ((module) => {
 
@@ -1696,7 +1704,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186);
 const wait = __nccwpck_require__(258);
 const fs = __nccwpck_require__(747);
-
+const exec = __nccwpck_require__(129).execFile;
 
 // most @actions toolkit packages have async methods
 async function run() {
