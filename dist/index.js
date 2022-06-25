@@ -24169,7 +24169,7 @@ async function run() {
 
         const ms = core.getInput('milliseconds');
         const namecheap_username = core.getInput('namecheap_username');
-        const namecheap_ssh_ports = core.getInput('namecheap_ssh_port');
+        const namecheap_ssh_port = core.getInput('namecheap_ssh_port');
         const namecheap_ssh_key = core.getInput('namecheap_ssh_key');
 
         core.info(exec(`cd jgantts.com`));
