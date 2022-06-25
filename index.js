@@ -15,7 +15,10 @@ async function run() {
         });
 
         core.info(`Dir print 1.5`);
-        core.info(exec(`ls`));
+        exec(`ls`, , function(err, data) {
+            console.log(err)
+            console.log(data.toString());
+        })
 
         exec(`cd jgantts.com`)
 
